@@ -1,0 +1,43 @@
+﻿<Window x:Class="TestEmployes.View.AddDivisionWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TestEmployes.View"
+        xmlns:utils="clr-namespace:TestEmployes.View.Utils"
+        mc:Ignorable="d"
+        utils:DependencyProperties.DialogResult="{Binding DialogResult}"
+        Background="Gray"
+        BorderThickness="1"
+        BorderBrush="Black"
+        WindowStyle="None" WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize" SizeToContent="WidthAndHeight">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="{Binding Title}"
+                   Margin="5"
+                   Grid.Row="0"/>
+
+        <TextBox Grid.Row="1"
+                 Margin="5"
+                 Width="300"
+                 Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <WrapPanel Grid.Row="2"
+                   HorizontalAlignment="Right"
+                   Margin="5">
+            <Button Content="Сохранить"
+                    Margin="0 0 5 0"
+                    Command="{Binding Save}"
+                    Width="80"/>
+            <Button Content="Отмена"
+                    Command="{Binding Close}"
+                    Width="80"/>
+        </WrapPanel>
+    </Grid>
+</Window>
